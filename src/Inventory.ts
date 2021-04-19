@@ -18,7 +18,8 @@ export default class Inventory {
         return result.length ? result[0] : undefined;
     }
 
-    public search(searchGuitar: Guitar): Guitar {
+    public search(searchGuitar: Guitar): Array<Guitar> {
+        const matchingGuitars = new Array<Guitar>();
         for (let guitar of this.guitars) {
             if (guitar.getBuilder() !== searchGuitar.getBuilder()) {
                 continue;
@@ -41,8 +42,8 @@ export default class Inventory {
                 continue;
             }
 
-            return guitar;
+            matchingGuitars.push(guitar);
         }
-        return null;
+        return matchingGuitars;
     }
 }
