@@ -1,4 +1,19 @@
 @import '/node_modules/normalize.css/normalize.css';
 
 @import 'modules/variables';
-@import 'modules/base'
+@import 'modules/base';
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    background-color: rgb(56, 98, 138);
+}
+
+div[id='root'] {
+    color: rgb(137, 197, 224);
+}

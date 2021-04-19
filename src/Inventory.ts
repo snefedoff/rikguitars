@@ -1,5 +1,4 @@
-import Guitar from "./Guitar";
-import { Builder, Type, Wood } from "./types";
+import Guitar, { GuitarSpec } from "./Guitar";
 
 export default class Inventory {
     private guitars: Array<Guitar>;
@@ -8,8 +7,8 @@ export default class Inventory {
         this.guitars = new Array<Guitar>();
     }
 
-    public addGuitar(serialNumber: string, price: number, builder: Builder, model: string, type: Type, backWood: Wood, topWood: Wood): void {
-        const guitar = new Guitar(serialNumber, price, builder, model, type, backWood, topWood);
+    public addGuitar(serialNumber: string, price: number, spec: GuitarSpec): void {
+        const guitar = new Guitar(serialNumber, price, spec);
         this.guitars.push(guitar);
     }
 
@@ -18,27 +17,27 @@ export default class Inventory {
         return result.length ? result[0] : undefined;
     }
 
-    public search(searchGuitar: Guitar): Array<Guitar> {
+    public search(guitarSpec: GuitarSpec): Array<Guitar> {
         const matchingGuitars = new Array<Guitar>();
         for (let guitar of this.guitars) {
-            if (guitar.getBuilder() !== searchGuitar.getBuilder()) {
+            if (guitar.getSpec().getBuilder() !== guitarSpec.getBuilder()) {
                 continue;
             }
 
-            const model = searchGuitar.getModel().toLowerCase();
-            if (model !== null && model !== "" && model !== guitar.getModel().toLowerCase()) {
+            const model = guitarSpec.getModel().toLowerCase();
+            if (model !== null && model !== "" && model !== guitar.getSpec().getModel().toLowerCase()) {
                 continue;
             }
 
-            if (searchGuitar.getType() !== guitar.getType()) {
+            if (guitarSpec.getType() !== guitar.getSpec().getType()) {
                 continue;
             }
 
-            if (searchGuitar.getBackWood() !== guitar.getBackWood()) {
+            if (guitarSpec.getBackWood() !== guitar.getSpec().getBackWood()) {
                 continue;
             }
 
-            if (searchGuitar.getTopWood() !== guitar.getTopWood()) {
+            if (guitarSpec.getTopWood() !== guitar.getSpec().getTopWood()) {
                 continue;
             }
 
