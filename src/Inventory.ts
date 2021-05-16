@@ -1,4 +1,5 @@
-import Guitar, { GuitarSpec } from "./Guitar";
+import Guitar from "./Guitar";
+import { GuitarSpec } from "./GuitarSpec";
 
 export default class Inventory {
     private guitars: Array<Guitar>;
@@ -8,7 +9,8 @@ export default class Inventory {
     }
 
     public addGuitar(serialNumber: string, price: number, spec: GuitarSpec): void {
-        const guitar = new Guitar(serialNumber, price, spec);
+        const guitar = new Guitar(serialNumber, price);
+        guitar.setSpec(spec);
         this.guitars.push(guitar);
     }
 
@@ -20,28 +22,7 @@ export default class Inventory {
     public search(guitarSpec: GuitarSpec): Array<Guitar> {
         const matchingGuitars = new Array<Guitar>();
         for (let guitar of this.guitars) {
-            if (guitar.getSpec().getBuilder() !== guitarSpec.getBuilder()) {
-                continue;
-            }
-
-            const model = guitarSpec.getModel().toLowerCase();
-            if (model !== null && model !== "" && model !== guitar.getSpec().getModel().toLowerCase()) {
-                continue;
-            }
-
-            if (guitarSpec.getType() !== guitar.getSpec().getType()) {
-                continue;
-            }
-
-            if (guitarSpec.getBackWood() !== guitar.getSpec().getBackWood()) {
-                continue;
-            }
-
-            if (guitarSpec.getTopWood() !== guitar.getSpec().getTopWood()) {
-                continue;
-            }
-
-            matchingGuitars.push(guitar);
+           guitar.getSpec().matches(guitarSpec) && matchingGuitars.push(guitar)
         }
         return matchingGuitars;
     }

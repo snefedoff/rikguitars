@@ -1,6 +1,6 @@
 export enum Type {
-    ACOUSTIC = 'Acoustic',
-    ELECTRIC = 'Electric'
+    ACOUSTIC = 'acoustic',
+    ELECTRIC = 'electric'
 }
 
 export enum Builder {
