@@ -29,8 +29,15 @@ export default class FindGuitarTester {
     }
 
     private initInventory(inventory: Inventory) {
-        const fenderStratocastor = new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 6);
-        inventory.addGuitar("V95693", 1499.95, fenderStratocastor);
-        inventory.addGuitar("V9512", 1549.95, fenderStratocastor);
+        inventory.addGuitar(
+            "V95693",
+            1499.95,
+            new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 6)
+        );
+        inventory.addGuitar(
+            "V9512",
+            1549.95,
+            new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 6)
+        );
     }
 }

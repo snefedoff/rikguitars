@@ -4,13 +4,13 @@ export enum Type {
 }
 
 export enum Builder {
-    FENDER = 'Fender', 
-    MARTIN = 'Martin', 
-    GIBSON = 'Gibson', 
-    COLLINGS = 'Collings', 
-    OLSON = 'Olson', 
-    RYAN = 'Ryan', 
-    PRS = 'PRS', 
+    FENDER = 'Fender',
+    MARTIN = 'Martin',
+    GIBSON = 'Gibson',
+    COLLINGS = 'Collings',
+    OLSON = 'Olson',
+    RYAN = 'Ryan',
+    PRS = 'PRS',
     ANY = 'Any'
 }
 
@@ -24,4 +24,8 @@ export enum Wood {
   ADIRONDACK = "Adirondack",
   ALDER = "Alder",
   SITKA = "Sitka",
+}
+
+export enum Style {
+    STYLE = 'STYLE'
 }
