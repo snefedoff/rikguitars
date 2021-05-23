@@ -1,1 +1,8 @@
 node_modules
+/.idea/.gitignore
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/rikguitars.iml
+/.idea/vcs.xml
