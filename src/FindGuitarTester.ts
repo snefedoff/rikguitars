@@ -29,12 +29,12 @@ export default class FindGuitarTester {
     }
 
     private initInventory(inventory: Inventory) {
-        inventory.addGuitar(
+        inventory.addInstrument(
             "V95693",
             1499.95,
             new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 6)
         );
-        inventory.addGuitar(
+        inventory.addInstrument(
             "V9512",
             1549.95,
             new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 6)
