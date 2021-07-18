@@ -29,3 +29,12 @@ export enum Wood {
 export enum Style {
     STYLE = 'STYLE'
 }
+
+export enum InstrumentType {
+    GUITAR = "GUITAR",
+    BANJO = "BANJO",
+    DOBRO = "DOBRO",
+    FIDDLE = "FIDDLE",
+    BASS = "BASS",
+    MANDOLIN = "MANDOLIN"
+}

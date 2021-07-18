@@ -7,10 +7,12 @@ export default class Instrument {
 
   constructor(
     serialNumber: string,
-    price: number
+    price: number,
+    spec: InstrumentSpec
   ) {
     this.serialNumber = serialNumber;
     this.price = price;
+    this.spec = spec;
   }
 
   public getSerialNumber(): string {
@@ -27,9 +29,5 @@ export default class Instrument {
 
   public getSpec(): InstrumentSpec {
     return this.spec;
-  }
-
-  public setSpec(newSpec: InstrumentSpec): void {
-    this.spec = newSpec;
   }
 }

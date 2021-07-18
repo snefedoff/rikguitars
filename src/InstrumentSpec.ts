@@ -1,37 +1,28 @@
-import { Builder, Type, Wood } from "./types";
+import { Builder, InstrumentType, Type, Wood } from "./types";
+
+export type Props = { [key: string]: string | number | Type | Wood | Builder | InstrumentType };
 
 export class InstrumentSpec {
-    protected type: Type;
-    protected backWood: Wood;
-    protected topWood: Wood;
-    protected builder: Builder;
-    protected model: string;
+    private readonly props: Props;
 
-    constructor(builder: Builder, model: string, type: Type, backWood: Wood, topWood: Wood) {
-      this.builder = builder;
-      this.model = model;
-      this.type = type;
-      this.backWood = backWood;
-      this.topWood = topWood;
+    constructor(props: Props) {
+      this.props = Object.assign({}, props);
     }
 
-    public getModel(): string {
-      return this.model;
+    public getProps(): Props {
+        return this.props;
     }
 
-    public getType(): string {
-      return this.type;
-    }
+    public matches(spec: InstrumentSpec): boolean {
+        const otherSpec = spec.getProps();
+        const otherSpecKeys = Object.keys(otherSpec);
 
-    public getBackWood(): string {
-      return this.backWood;
-    }
+        for (let key of otherSpecKeys) {
+            if (otherSpec[key] !== this.props[key]) {
+                return false;
+            }
+        }
 
-    public getTopWood(): string {
-      return this.topWood;
-    }
-
-    public getBuilder(): string {
-      return this.builder;
+        return true;
     }
   }
